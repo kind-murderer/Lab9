@@ -13,7 +13,7 @@
 <head>
     <%-- Вывести тему объявления как заголовок страницы --%>
     <title><c:out value="${ad.subject}" /></title>
-        <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+        <meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
 </head>
 <body>
 <%-- Подключить заголовок страницы --%>
@@ -31,7 +31,8 @@
     </div>
 
     <%-- Отобразить текст объявления в отдельной рамке --%>
-    <div style="border: 1px solid black; padding: 20px;"> <c:out value="${ad.body}" />
+    <div style="border: 1px solid black; padding: 20px;">
+        <c:out value="${ad.body}" />
     </div>
 </my:layout1Column>
 <%-- Вставить нижний заголовок страницы --%>

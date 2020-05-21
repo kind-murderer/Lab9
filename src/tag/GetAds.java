@@ -22,10 +22,12 @@ public class GetAds extends SimpleTagSupport
     private char dir;
     // Поле данных для атрибута var (контейнер результата)
     private String var;
+
     // Метод-сеттер для установки атрибута (вызывается контейнером)
     public void setId(int id) {
-        this.id = id; }
-    // Метод-сеттер для установки атрибута (вызывается контейнером)
+        this.id = id;
+    }
+
     public void setRange(String range) {
         this.range = range.toLowerCase();
     }

@@ -14,6 +14,19 @@
 
     <!--добавляем свои теги созданные с .java-->
     <tag>
+        <description>Видоизменяет строку для поиска</description>
+        <name>search</name>
+        <tag-class>tag.Search</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <description>Введенная строка для поиска</description>
+            <name>searchingText</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
         <description>Выполняет добавление нового пользователя</description>
         <name>addUser</name>
         <tag-class>tag.AddUser</tag-class>
