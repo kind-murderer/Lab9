@@ -28,6 +28,14 @@
           <%-- Содержание правой колонки передаѐтся как атрибут rightColumnBody --%>
           <%-- Вставить тег отображения сообщения об ошибке --%>
           <my:errorMessage />
+          <%-- Кнопка для перехода на страницу поиска--%>
+          <my:searchButton>
+              <jsp:attribute name="processor">
+                  <%-- Адрес страницы с формой регистрации передаѐтся
+                   как и для страницы-обработчика формы регистрации --%>
+                  <c:url value="/searchpage.jsp" />
+              </jsp:attribute>
+          </my:searchButton>
           <%-- Вставить форму входа --%>
           <my:loginForm>
               <jsp:attribute name="processor">

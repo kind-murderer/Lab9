@@ -20,6 +20,7 @@ public class Login extends SimpleTagSupport
     public void setPassword(String password) {
         this.password = password;
     }
+
     public void doTag() throws JspException, IOException {
         // Изначально описание ошибки = null (т.е. ошибки нет)
         String errorMessage = null;

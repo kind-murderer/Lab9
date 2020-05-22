@@ -26,7 +26,8 @@
             <td><input type="text" name="login" value="${sessionScope.userData.login}"></td>
         </tr>
         <tr>
-            <td>Пароль:</td> <td><input type="password" name="password" value=""></td>
+            <td>Пароль:</td>
+            <td><input type="password" name="password" value=""></td>
         </tr>
         <tr>
             <td>Имя:</td>
