@@ -17,10 +17,10 @@
 <h1>Страница поиска</h1>
 <my:layout2Columns leftColumnWidth="68%" rightColumnWidth="28%">
     <jsp:attribute name="leftColumnBody">
-
          <c:if test="${param.searchingToken !=null}">
-            <p>Ведутся работы по созданию функционала поиска.
-                    ${param.searchingToken}</p>
+             <ad:getAds range="searching" var="adListing" sort="${sessionScope.sort}" dir="${sessionScope.dir}"
+                        searchingToken="${param.searchingToken}" />
+             <my:adListing adListing="${adListing}" editMode="false" />
         </c:if>
     </jsp:attribute>
     <jsp:attribute name="rightColumnBody">

@@ -23,6 +23,9 @@ public class GetAds extends SimpleTagSupport
     // Поле данных для атрибута var (контейнер результата)
     private String var;
 
+    // Поле данных для атрибута searchingToken (контейнер результата)
+    private String searchingToken;
+
     // Метод-сеттер для установки атрибута (вызывается контейнером)
     public void setId(int id) {
         this.id = id;
@@ -42,6 +45,10 @@ public class GetAds extends SimpleTagSupport
     // Метод-сеттер для установки атрибута (вызывается контейнером)
     public void setVar(String var) {
         this.var = var;
+    }
+    // Метод-сеттер для установки атрибута (вызывается контейнером)
+    public void setSearchingToken(String searchingToken) {
+        this.searchingToken = searchingToken;
     }
 
     public void doTag() throws JspException, IOException
@@ -67,10 +74,23 @@ public class GetAds extends SimpleTagSupport
             for (Ad ad: adList.getAds()) {
                 // Если режим фильтрации собственные сообщений выключен
                 // или текущее объявление принадлежит пользователю
-                if (!"my".equals(range) || (authUser!=null &&
-                        authUser.getId()==ad.getAuthorId())) {
+                if ("all".equals(range)) {
                     // Добавить объявление в список
                     sortedList.add(ad);
+                }
+                else if("my".equals(range) && (authUser!=null && authUser.getId()==ad.getAuthorId())) {
+                    sortedList.add(ad);
+                }
+                else if("searching".equals(range)) {
+                    String[] splitText = searchingToken.split(",");
+                    String body = ad.getBody();
+                    int tokenNumber = 0;
+                    for(String token:splitText) {
+                        if(body.contains(token)) tokenNumber++;
+                    }
+                    if (tokenNumber == splitText.length) {
+                        sortedList.add(ad);
+                    }
                 }
             }
             // Как анонимный класс определить и создать экземпляр компаратора
